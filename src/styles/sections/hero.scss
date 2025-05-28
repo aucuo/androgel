@@ -4,7 +4,7 @@
 .hero {
     position: relative;
     padding: var(--padding-large) 0;
-    background: transparent url("../../../public/assets/images/grass.png") no-repeat left top / contain;
+    background: transparent url("/assets/images/grass.png") no-repeat left top / contain;
 
     &:after {
         @include m.pseudo();
