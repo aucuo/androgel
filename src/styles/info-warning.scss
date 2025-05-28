@@ -11,4 +11,9 @@
     inset: auto 0 0;
     padding: var(--padding-small) 0 var(--padding-largest);
     background-color: v.$color-ultra-dark-green;
+    opacity: .8;
+    letter-spacing: .08em;
+    text-align: center;
+    line-height: 130%;
+    backdrop-filter: blur(20px);
 }

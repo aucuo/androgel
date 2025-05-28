@@ -5,7 +5,7 @@
     width: 100%;
     margin-top: -60px;
     padding: 120px 0 200px;
-    background: transparent url("./assets/images/footer-forest.jpg") no-repeat bottom center / cover;
+    background: transparent url("/assets/images/footer-forest.jpg") no-repeat bottom center / cover;
 
     &__wrapper {
         @include m.flex(space-between);

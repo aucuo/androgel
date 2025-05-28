@@ -33,7 +33,7 @@
         flex-shrink: 0;
         width: 900px;
         padding: calc(var(--padding-large) * 2);
-        background: transparent url('./assets/images/hero-back.svg') right center / cover no-repeat;
+        background: transparent url('/assets/images/hero-back.svg') right center / cover no-repeat;
 
         &__badge {
             width: fit-content;

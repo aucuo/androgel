@@ -2,7 +2,7 @@
 @use "../mixins" as m;
 
 .section-therapy {
-    background: transparent url("./assets/images/bengal-tiger-2.jpg") no-repeat top center / cover;
+    background: transparent url("/assets/images/bengal-tiger-2.jpg") no-repeat top center / cover;
     border-radius: var(--radius-larger) var(--radius-larger) 0 0;
     margin-bottom: 0;
 
