@@ -7,6 +7,8 @@
 
 @use "base";
 @use "header";
+@use "footer";
+@use "info-warning";
 
 // components
 @use "components/banner";
@@ -33,4 +35,5 @@
 @use "sections/contraindications";
 @use "sections/indicators";
 @use "sections/questions";
+@use "sections/sbanner";
 

@@ -1,0 +1,66 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+.footer {
+    width: 100%;
+    margin-top: -60px;
+    padding: 120px 0 200px;
+    background: transparent url("./assets/images/footer-forest.jpg") no-repeat bottom center / cover;
+
+    &__wrapper {
+        @include m.flex(space-between);
+        position: relative;
+        width: 100%;
+        padding: calc(var(--padding-large) * 2);
+        background-color: v.$color-dark-green;
+        margin-bottom: calc(var(--gap-large) * 2);
+        border-radius: var(--radius-larger);
+    }
+
+    &__col {
+        @include m.flex(space-between, stretch, column);
+        gap: calc(var(--gap-large) * 2);
+    }
+
+    &__logo {
+        width: 184px;
+        height: auto;
+    }
+
+    .nav {
+        @include m.flex();
+        gap: calc(var(--gap-large) + 5px);
+
+        &__col {
+            @include m.flex(flex-start, stretch, column);
+            gap: var(--gap-normal);
+            max-width: 240px;
+            width: 100%;
+            flex-shrink: 0;
+        }
+    }
+
+    &__socials {
+        @include m.flex();
+        gap: var(--gap-normal);
+    }
+
+    &__contacts {
+        white-space: nowrap;
+    }
+
+    &__contacts,
+    &__info {
+        @include m.flex(flex-start, stretch, column);
+        gap: var(--gap-small);
+    }
+
+    &__info {
+        width: 100%;
+    }
+
+    &__qr {
+        width: 164px;
+        height: 164px;
+    }
+}

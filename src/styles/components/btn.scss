@@ -49,6 +49,11 @@
         }
     }
 
+    &--ultra {
+        background-color: v.$color-ultra-dark-green;
+        color: v.$color-white;
+    }
+
     &--outline {
         border: 1px solid #FFFFFF1A;
     }

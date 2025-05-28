@@ -105,3 +105,8 @@ a {
         }
     }
 }
+
+small {
+    font-size: var(--font-small);
+    opacity: .6;
+}

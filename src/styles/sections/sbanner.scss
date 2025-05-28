@@ -1,0 +1,95 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.section-banner {
+    background: v.$color-gradient;
+    border-radius: var(--radius-larger);
+    margin-top: -60px;
+    padding: 120px 0;
+    overflow: hidden;
+    margin-bottom: 0;
+    
+    &::after {
+        z-index: 1;
+        @include m.pseudo();
+        background-image: url('./assets/images/illustrations/big-logo.svg');
+        inset: 0;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+    }
+
+    &__wrapper {
+        z-index: 2;
+        position: relative;
+        width: 100%;
+    }
+
+    &__row {
+        @include m.flex();
+        gap: var(--gap-medium);
+        margin-bottom: calc(var(--gap-largest) * 2);
+    }
+
+    &__info {
+        max-width: 540px;
+    }
+
+    &__title {
+        margin-bottom: var(--gap-normal);
+    }
+
+    &__text {
+        margin-bottom: var(--gap-largest);
+    }
+
+    .pros {
+        &-item {
+            @include m.flex(flex-start, center);
+            gap: var(--gap-medium);
+
+            &:not(:last-child) {
+                margin-bottom: var(--gap-normal);
+            }
+
+            &__icon {
+                background-image: linear-gradient(v.$color-blue, v.$color-blue), var(--gradient);
+            }
+        }
+    }
+
+    &__image {
+        max-width: 825px;
+        width: 100%;
+    }
+
+    .medal {
+        max-width: 400px;
+        top: 0;
+        right: 0;
+        position: absolute;
+        @include m.flex(center, center, column);
+        text-align: center;
+
+        &__image {
+            width: 160px;
+            height: 160px;
+            margin-bottom: var(--gap-medium);
+        }
+
+        &__title {
+            margin-bottom: var(--gap-smaller);
+        }
+    }
+
+    &__instruction {
+        @include m.flex(space-between, center);
+        padding: var(--padding-medium) var(--padding-largest);
+        background-color: v.$color-blue;
+        border-radius: var(--radius-normal);
+
+        svg {
+            width: 32px;
+            height: 32px;
+        }
+    }
+}

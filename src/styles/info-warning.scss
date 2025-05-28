@@ -1,0 +1,14 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+.info-warning {
+    z-index: 10;
+    @include m.flex(center, center);
+    font-size: var(--heading-medium);
+    text-transform: uppercase;
+    color: #FFFFFF80;
+    position: fixed;
+    inset: auto 0 0;
+    padding: var(--padding-small) 0 var(--padding-largest);
+    background-color: v.$color-ultra-dark-green;
+}
