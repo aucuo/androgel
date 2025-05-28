@@ -1,0 +1,55 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.color-circle {
+    width: 64px;
+    height: 64px;
+    @include m.flex(center, center);
+    flex-shrink: 0;
+    @include m.linear-border(var(--gradient));
+    padding: 2px;
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    font-weight: 600;
+
+    &--green {
+        --gradient: linear-gradient(216.97deg, rgba(155, 187, 90, 0) 10.88%, #9BBB5A 48.93%, rgba(155, 187, 90, 0) 90.16%);
+        --shadow: ;
+        --shadow: 4px 8px 40px 0px #9BBB5A66, 2px 4px 8px 0px #9BBB5A33;
+    }
+
+    &--blue {
+        --gradient: linear-gradient(216.97deg, rgba(56, 188, 226, 0) 10.88%, #38BCE2 48.93%, rgba(56, 188, 226, 0) 90.16%);
+        --shadow: 4px 8px 40px 0px #38BCE266, 2px 4px 8px 0px #38BCE233;
+    }
+
+    &--red {
+        --gradient: linear-gradient(216.97deg, rgba(255, 84, 65, 0) 10.88%, #FF5441 48.93%, rgba(255, 84, 65, 0) 90.16%);
+        --shadow: 4px 8px 40px 0px #FF544166, 2px 4px 8px 0px #FF544133;
+    }
+
+    &--orange {
+        --gradient: linear-gradient(216.97deg, rgba(232, 105, 33, 0) 10.88%, #E86921 48.93%, rgba(232, 105, 33, 0) 90.16%);
+        --shadow: 4px 8px 20px 0 #E8692166, 2px 4px 8px 0 #E8692133;
+    }
+
+    &--white {
+        --gradient: linear-gradient(216.97deg, rgba(255, 255, 255, 0) 10.88%, #FFFFFF 48.93%, rgba(255, 255, 255, 0) 90.16%);
+        --shadow: 4px 8px 40px 0 #FFFFFF66, 2px 4px 8px 0 #FFFFFF33;
+    }
+
+    svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    &--large {
+        width: 88px;
+        height: 88px;
+
+        svg {
+            width: 48px;
+            height: 48px;
+        }
+    }
+}

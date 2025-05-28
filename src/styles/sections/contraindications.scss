@@ -1,0 +1,42 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.section-contraindications {
+
+    &:before {
+        @include m.blured-circle(0);
+        right: 0;
+        opacity: .3;
+    }
+
+    &:after {
+        @include m.blured-circle(300px, -20%);
+        opacity: .3;
+    }
+
+    &__wrapper {
+        width: 100%;
+        @include m.flex(space-between);
+        gap: var(--gap-medium);
+        padding-bottom: 120px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    &__title {
+        max-width: 540px;
+    }
+
+    &__list {
+        max-width: 825px;
+
+        .contraindication {
+            @include m.flex(flex-start, center);
+            gap: var(--gap-medium);
+            padding-right: var(--padding-larger);
+
+            &:not(:last-child) {
+                margin-bottom: var(--gap-normal);
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.section-questions {
+    margin-bottom: 0;
+    background-color: v.$color-dark-green;
+    border-radius: var(--radius-larger) var(--radius-larger) 0 0;
+
+    &__wrapper {
+        width: 100%;
+        padding: calc(var(--padding-largest) * 2) 0 calc(var(--padding-larger) * 4);
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: var(--gap-medium);
+    }
+
+    &__text {
+        text-align: center;
+        margin-bottom: var(--gap-largest);
+        opacity: .6;
+    }
+
+    .cards {
+        @include m.flex(space-between, stretch);
+        gap: var(--gap-medium);
+
+        .card {
+            @include m.flex(center, center, column);
+            background-color: v.$color-white;
+            border-radius: var(--radius-normal);
+            color: v.$color-ultra-dark-green;
+            gap: var(--gap-medium);
+            padding: var(--padding-largest) var(--padding-medium);
+            flex: 25%;
+            text-align: center;
+
+            &__icon {
+                color: v.$color-light-blue;
+                background-image: linear-gradient(#fff, #fff), var(--gradient);
+            }
+        }
+    }
+}

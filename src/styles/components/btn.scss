@@ -1,0 +1,104 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.btn {
+    position: relative;
+    @include m.flex(center, center);
+    width: fit-content;
+    gap: var(--gap-medium);
+    padding: 0 var(--padding-medium);
+    border-radius: 100px;
+    color: v.$color-white;
+    font-weight: 600;
+    height: 60px;
+    transition: v.$transition;
+    white-space: nowrap;
+
+    @media (hover: hover) and (min-width: 1024px) {
+        &:hover {
+            opacity: .85;
+        }
+    }
+
+    &--primary {
+        background: v.$color-gradient;
+
+        svg {
+            box-sizing: content-box;
+            width: 24px;
+            height: 24px;
+            padding: var(--padding-small);
+            background-color: v.$color-white;
+            color: v.$color-blue;
+            border-radius: 100px;
+        }
+    }
+
+    &--secondary {
+        background: v.$color-white;
+        color: v.$color-blue;
+
+        svg {
+            box-sizing: content-box;
+            color: v.$color-white;
+            width: 24px;
+            height: 24px;
+            padding: var(--padding-small);
+            background: v.$color-gradient;
+            border-radius: 50%;
+        }
+    }
+
+    &--outline {
+        border: 1px solid #FFFFFF1A;
+    }
+
+    &--small {
+        padding: 0 var(--padding-normal);
+    }
+
+    &--icon {
+        width: 64px;
+        height: 64px;
+        padding: 0;
+
+        &-left {
+            padding-right: var(--padding-small);
+        }
+
+        &-right {
+            padding-right: var(--padding-small);
+        }
+    }
+
+    &--progress {
+        position: relative; // Важно для абсолютного SVG внутри
+        overflow: hidden;   // Чтобы прогресс не выходил за границы кнопки
+
+        .progress {
+            z-index: -1;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg); // Общий поворот, чтобы начать с верхней точки
+
+            .progress__bg {
+                fill: none;
+                stroke: rgba(255, 255, 255, 0.1);
+                stroke-width: 2;
+            }
+
+            .progress__bar {
+                fill: none;
+                stroke: v.$color-white;
+                stroke-width: 2;
+                stroke-dasharray: 308;
+
+                // Вычисляем offset на основе --progress
+                stroke-dashoffset: calc(308 * (1 - (var(--progress) / 100)));
+                transform-origin: 50% 50%;
+            }
+        }
+    }
+}

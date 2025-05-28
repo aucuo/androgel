@@ -1,3 +1,36 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
+@use "variables" as v;
+@use "mixins" as m;
+
+@use "reset";
+
+@use "components/btn";
+
+@use "base";
+@use "header";
+
+// components
+@use "components/banner";
+@use "components/article";
+@use "components/color-circle";
+@use "components/table";
+@use "components/warning";
+
+// sections
+@use "sections/hero";
+@use "sections/influence";
+@use "sections/synthesis";
+@use "sections/need";
+@use "sections/scope";
+@use "sections/gipo";
+@use "sections/features";
+@use "sections/distribution";
+@use "sections/associations";
+@use "sections/therapy";
+@use "sections/instruction";
+@use "sections/versus";
+@use "sections/pros";
+@use "sections/results";
+@use "sections/contraindications";
+@use "sections/indicators";
+@use "sections/questions";
+

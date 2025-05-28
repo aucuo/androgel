@@ -1,0 +1,19 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.article {
+    background: v.$color-gradient;
+    padding: var(--padding-medium);
+    border-radius: 0 0 var(--radius-medium) var(--radius-medium);
+    width: 100%;
+
+    &__type {
+        margin-bottom: var(--gap-small);
+        opacity: .6;
+    }
+
+    &__name {
+        line-height: 140%;
+        margin-bottom: var(--gap-medium);
+    }
+}

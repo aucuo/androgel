@@ -1,0 +1,175 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.hero {
+    position: relative;
+    padding: var(--padding-large) 0;
+    background: transparent url("../../../public/assets/images/grass.png") no-repeat left top / contain;
+
+    &:after {
+        @include m.pseudo();
+        top: 170px;
+        right: 0;
+        width: 800px;
+        height: 800px;
+        background-color: #90C539;
+        border-radius: 50%;
+        filter: blur(800px);
+    }
+
+    &__wrapper {
+        margin-top: 106px;
+        @include m.flex();
+        min-height: calc(100vh - 186px);
+        width: 100%;
+        border-radius: var(--radius-larger);
+        overflow: hidden;
+    }
+
+    .info {
+        z-index: 2;
+        position: relative;
+        @include m.flex(stretch, flex-start, column);
+        flex-shrink: 0;
+        width: 900px;
+        padding: calc(var(--padding-large) * 2);
+        background: transparent url('./assets/images/hero-back.svg') right center / cover no-repeat;
+
+        &__badge {
+            width: fit-content;
+            padding: var(--padding-small) var(--padding-normal);
+            color: v.$color-blue;
+            background-color: v.$color-white;
+            border-radius: var(--radius-smaller);
+            margin-bottom: var(--gap-largest);
+            font-weight: 600;
+        }
+
+        &__header {
+            margin-bottom: var(--gap-normal);
+            font-size: var(--heading-medium);
+            font-weight: 600;
+            max-width: 540px;
+        }
+
+        &__text {
+            margin-bottom: var(--gap-large);
+            font-size: var(--font-medium);
+            max-width: 540px;
+        }
+
+        &__persons {
+            @include m.flex(flex-start, center);
+            gap: var(--gap-normal);
+            margin-top: auto;
+        }
+
+        .person {
+            @include m.flex(center, center);
+            gap: var(--gap-normal);
+            max-width: 315px;
+
+            &__img {
+                width: 80px;
+                height: 80px;
+                border-radius: 80px;
+            }
+
+            &__name {
+                font-size: var(--font-medium);
+                font-weight: 700;
+                margin-bottom: 4px;
+                text-transform: uppercase;
+            }
+
+            &__job {
+                font-size: var(--font-smaller);
+                opacity: .6;
+            }
+        }
+    }
+
+    .slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        margin-left: -300px;
+
+        .swiper {
+            height: 100%;
+        }
+
+        &__img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &__numbers {
+            z-index: 1;
+            position: absolute;
+            top: 80px;
+            right: 80px;
+            @include m.flex(center, center);
+        }
+
+        &__number {
+            font-size: calc(var(--font-small) - 1px) !important;
+            opacity: .4;
+            line-height: 19px;
+
+            &--active {
+                opacity: 1;
+                font-weight: 700;
+            }
+
+            &:not(:last-child):after {
+                content: "\\";
+                font-weight: 400;
+                margin: 0 var(--gap-smaller);
+                line-height: 19px;
+                opacity: .4;
+            }
+        }
+
+        &__buttons {
+            z-index: 1;
+            position: absolute;
+            bottom: 80px;
+            right: 80px;
+            @include m.flex(center, center);
+            gap: var(--gap-medium);
+        }
+
+        &__button {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            &--next {
+                --color: #fff transparent transparent transparent;
+
+                &:after {
+                    @include m.pseudo();
+                    width: calc(100% + 3px);
+                    height: calc(100% + 3px);
+                    margin-left: -1px;
+                    margin-top: -1px;
+                    background-color: transparent;
+                    border: 1px solid;
+                    border-color: #fff transparent transparent transparent;
+                    transform: rotate(45deg);
+                    border-radius: 100px;
+                    z-index: -100;
+                    transition: all .2s ease-in-out;
+                }
+            }
+            &--1:after {
+                border-color: #fff transparent transparent transparent;
+            }
+            &--2:after {
+                border-color: #fff #fff transparent transparent;
+            }
+            &--3:after {
+                border-color: #fff #fff #fff transparent;
+            }
+        }
+    }
+}

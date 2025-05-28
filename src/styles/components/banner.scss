@@ -1,0 +1,16 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.banner {
+    @include m.flex(space-between, center);
+    border-radius: var(--radius-normal);
+    padding: var(--padding-medium);
+    background: v.$color-gradient;
+    margin-top: auto;
+
+    &__type {
+        margin-bottom: var(--gap-small);
+        opacity: .6;
+
+    }
+}

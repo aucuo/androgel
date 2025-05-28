@@ -1,0 +1,48 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.section-scope {
+    z-index: 1;
+    margin: -40px 0 0;
+    overflow: hidden;
+
+    &:before {
+        z-index: 0;
+        @include m.pseudo();
+        width: 600px;
+        height: 600px;
+        background: transparent url("./assets/images/grass.png") no-repeat center center / cover;
+        top: 0;
+        right: 0;
+        transform: rotate(90deg);
+    }
+
+    &:after {
+        @include m.blured-circle(50%, -40%, 1800px);
+        opacity: .1;
+    }
+
+    &__wrapper {
+        z-index: 1;
+        position: relative;
+        @include m.flex(space-between, flex-start);
+        gap: var(--gap-medium);
+        padding: calc(var(--gap-largest) * 2 + 40px) 0 calc(var(--gap-largest) * 2 + 60px);
+    }
+
+    .graph {
+        flex-shrink: 0;
+
+        &__title {
+            margin-bottom: var(--gap-largest);
+        }
+    }
+
+    &__warning {
+        @include m.flex(flex-end, flex-start, column);
+        padding-bottom: var(--padding-largest);
+        align-self: stretch;
+        max-width: 340px;
+        margin-left: var(--gap-larger);
+    }
+}

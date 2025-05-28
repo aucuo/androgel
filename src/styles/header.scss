@@ -1,0 +1,68 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+.header {
+    z-index: 100;
+    position: absolute;
+    inset: 0 0 auto;
+    border-bottom: 1px solid v.$color-border;
+
+    &__wrapper {
+        @include m.flex(space-between, center);
+        width: 100%;
+        gap: 60px;
+    }
+
+    &__logo {
+        padding: var(--padding-medium) var(--padding-large);
+        border-right: 1px solid v.$color-border;
+
+        svg {
+            box-sizing: content-box;
+            width: 116px;
+            height: 42px;
+        }
+    }
+
+    .nav {
+        flex: 1;
+
+        &__list {
+            @include m.flex(space-between, center);
+            gap: 8px;
+
+            &-link {
+                @include m.flex(space-between, center);
+                color: v.$color-white;
+                padding: var(--padding-normal);
+                gap: var(--gap-smaller);
+                white-space: nowrap;
+
+                svg {
+                    color: v.$color-blue;
+                }
+            }
+        }
+    }
+
+    .calc {
+        @include m.flex(center, center);
+        padding: var(--padding-normal) var(--padding-large);
+        gap: var(--gap-normal);
+        border-left: 1px solid v.$color-border;
+
+        &__icon {
+            @include m.flex(center, center);
+            width: 55px;
+            height: 55px;
+            background: v.$color-gradient;
+            border-radius: 90px;
+            flex-shrink: 0;
+
+            svg {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    }
+}

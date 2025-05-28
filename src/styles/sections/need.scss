@@ -1,0 +1,75 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.need {
+    z-index: 2;
+    width: 100%;
+    background: transparent url("./assets/images/bengal-tiger.jpg") no-repeat center center / cover;
+    margin: 0;
+    border-radius: 0 0 var(--radius-larger) var(--radius-larger);
+    overflow: hidden;
+
+    &:before {
+        @include m.pseudo();
+        inset: 0 0 auto;
+        height: 270px;
+        background: linear-gradient(180deg, #0B160A 0%, rgba(11, 22, 10, 0) 100%);
+    }
+
+    &__wrapper {
+        z-index: 1;
+        position: relative;
+        padding-top: calc(var(--padding-largest) * 2);
+        padding-bottom: calc(var(--padding-largest) * 2);
+        width: 100%;
+    }
+
+    &__title {
+        margin-bottom: calc(var(--gap-large) * 2);
+    }
+
+    &__text {
+        margin-bottom: var(--gap-large);
+    }
+
+    &__block {
+        width: 100%;
+        max-width: 825px;
+    }
+
+    &__cards {
+        @include m.flex(stretch, stretch, row, wrap);
+        gap: var(--gap-medium);
+
+        .card {
+            @include m.linear-border();
+            box-sizing: border-box;
+            flex: 0 0 calc(50% - var(--gap-medium) / 2);
+            padding: 1px;
+            border-radius: var(--radius-normal);
+            background: #0B160ACC;
+            backdrop-filter: blur(40px);
+
+            &__wrapper {
+                padding: var(--padding-medium);
+            }
+
+            &__icon {
+                margin-bottom: var(--gap-medium);
+            }
+
+            &__text {
+                font-size: var(--font-medium);
+                font-weight: 600;
+                line-height: 140%;
+            }
+        }
+    }
+
+    &__article {
+        position: absolute;
+        top: 0;
+        right: calc(var(--gap-largest) + 20px);
+        max-width: 400px;
+    }
+}

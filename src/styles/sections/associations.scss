@@ -1,0 +1,44 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.section-associations {
+    margin-top: 0;
+
+    &:after {
+        z-index: -1;
+        @include m.blured-circle(80%, unset, 600px);
+        right: 0;
+    }
+
+    &__wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 100px;
+    }
+
+    &__title {
+        max-width: 1110px;
+        margin-bottom: calc(var(--gap-largest) * 2);
+    }
+
+    &__article {
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-width: 400px;
+    }
+
+    &__row {
+        @include m.flex(space-between);
+        gap: var(--gap-medium);
+    }
+
+    &__table {
+        width: 100%;
+        max-width: 1110px;
+    }
+
+    &__warning {
+        max-width: 400px;
+    }
+}

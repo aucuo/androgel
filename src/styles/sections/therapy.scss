@@ -1,0 +1,62 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.section-therapy {
+    background: transparent url("./assets/images/bengal-tiger-2.jpg") no-repeat top center / cover;
+    border-radius: var(--radius-larger) var(--radius-larger) 0 0;
+    margin-bottom: 0;
+
+    &:after {
+        z-index: 0;
+        @include m.pseudo();
+        inset: 300px 0 0;
+        background: linear-gradient(0deg, #182E16 0%, rgba(24, 46, 22, 0) 100%);
+    }
+
+    &__wrapper {
+        z-index: 1;
+        position: relative;
+        width: 100%;
+        padding: 120px 0 170px;
+    }
+
+    &__row {
+        @include m.flex(space-between);
+        gap: var(--gap-medium);
+        margin-bottom: calc(var(--gap-largest) * 2);
+    }
+
+    &__title {
+        max-width: 690px;
+
+        &--small {
+            margin-bottom: var(--gap-large);
+        }
+    }
+
+    .targets {
+        max-width: 540px;
+
+        &__title {
+            margin-bottom: var(--gap-medium);
+        }
+
+        &__list {
+            @include m.flex(flex-start, stretch, column);
+            gap: var(--gap-normal);
+        }
+
+        .target {
+            @include m.flex(flex-start, center);
+            gap: var(--gap-medium);
+        }
+    }
+
+    &__table {
+        width: 100%;
+
+        td {
+            font-size: var(--font-normal);
+        }
+    }
+}

@@ -1,0 +1,70 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.section-pros {
+    width: 100%;
+    background-color: v.$color-ultra-dark-green;
+    overflow: hidden;
+    padding: 120px 0;
+    border-radius: var(--radius-larger);
+    margin: 0;
+
+    &:after {
+        @include m.blured-circle(520px, -180px);
+        opacity: .4;
+    }
+
+    &:before {
+        @include m.blured-circle();
+        bottom: 300px;
+        right: -280px;
+        opacity: .4;
+    }
+
+    &__wrapper {
+        z-index: 2;
+        position: relative;
+        width: 100%;
+    }
+
+    &__row {
+        @include m.flex(space-between, flex-end);
+        margin-bottom: calc(var(--gap-large) * 2);
+    }
+
+    &__title {
+        max-width: 680px;
+
+        span {
+            color: v.$color-light-blue;
+        }
+    }
+
+    .cards {
+        @include m.flex();
+        gap: var(--gap-medium);
+
+        .card {
+            @include m.linear-border(linear-gradient(216.97deg, rgba(255, 255, 255, 0) 10.88%, #FFFFFF 48.93%, rgba(255, 255, 255, 0) 90.16%));
+            border-radius: var(--radius-normal);
+            backdrop-filter: blur(40px);
+            background-color: #0B160ACC;
+            padding: 1px;
+            flex-shrink: 0;
+            flex: 25%;
+
+            &__wrapper {
+                padding: var(--padding-medium);
+                height: 100%;
+            }
+
+            &__icon {
+                margin-bottom: var(--gap-medium);
+            }
+
+            &__name {
+                margin-bottom: var(--gap-small);
+            }
+        }
+    }
+}

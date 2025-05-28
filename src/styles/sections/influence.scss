@@ -1,0 +1,171 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.influence {
+    width: 100%;
+    margin-top: 120px;
+    background: transparent url('./assets/images/forest.jpg') top left / cover no-repeat;
+    min-height: 100vh;
+    border-radius: var(--radius-larger);
+    overflow: hidden;
+
+    &:before {
+        z-index: 2;
+        @include m.pseudo();
+        inset: 0 0 auto;
+        height: 350px;
+        background: linear-gradient(360deg, rgba(0, 0, 0, 0) 0%, #0B160A 100%);
+    }
+
+    &:after {
+        z-index: 2;
+        @include m.pseudo();
+        inset: auto 0 0;
+        height: 350px;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 35%, #0B160A 100%);
+    }
+
+    &__wrapper {
+        width: 100%;
+        position: relative;
+        z-index: 3;
+        align-items: stretch;
+        padding-top: 120px;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: var(--gap-large);
+    }
+
+    &__subtitle {
+        text-align: center;
+        font-weight: 700;
+        opacity: .4;
+    }
+
+    &__text {
+        text-align: center;
+        margin-bottom: calc(var(--gap-large) * 2);
+    }
+
+    &__cards {
+        @include m.flex(center, flex-start);
+        gap: var(--gap-medium);
+        margin-bottom: 275px;
+        height: fit-content;
+
+        .card {
+            width: 100%;
+            max-width: 255px;
+            border-radius: var(--radius-normal);
+            padding: 1px;
+
+            background-image: linear-gradient(#0B160A, #0B160A), linear-gradient(216.97deg, rgba(255, 255, 255, 0) 10.88%, #FFFFFF 48.93%, rgba(255, 255, 255, 0) 90.16%);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+
+            &__wrapper {
+                @include m.flex(space-between, center, column);
+                gap: var(--gap-medium);
+                padding: var(--padding-medium);
+            }
+
+
+            &__icon {
+
+            }
+
+            &__text {
+                @include m.flex(center, center);
+                text-align: center;
+                font-weight: 600;
+                font-size: var(--font-medium);
+                line-height: calc(var(--font-medium) + 9px);
+                height: calc((var(--font-medium) + 9px) * 2);
+            }
+        }
+    }
+
+    .nav {
+        z-index: 2;
+        position: relative;
+        padding: 1px;
+        width: fit-content;
+        border-radius: 90px;
+        margin: 0 auto 220px;
+
+        background-image: linear-gradient(#0B160A, #0B160A), linear-gradient(7deg, rgba(255, 255, 255, 0) 10.88%, #FFFFFF 48.93%, rgba(255, 255, 255, 0) 90.16%);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+
+        &__wrapper {
+            @include m.flex(center, center);
+            width: fit-content;
+            gap: var(--gap-small);
+            padding: var(--padding-small);
+        }
+    }
+
+    &__bottom-title {
+        z-index: 1;
+        position: relative;
+        max-width: 400px;
+        margin-bottom: 200px;
+    }
+
+    .links {
+        z-index: 2;
+        position: relative;
+        @include m.flex(space-between, stretch);
+        gap: var(--gap-medium);
+
+        .link {
+            position: relative;
+            width: 100%;
+            max-width: 540px;
+            @include m.flex(center, stretch, column);
+            background-color: v.$color-white;
+            border-radius: var(--radius-large);
+            padding: var(--padding-larger);
+            color: v.$color-ultra-dark-green;
+
+            svg {
+                position: absolute;
+                right: var(--padding-larger);
+                width: 24px;
+                height: 24px;
+                padding: var(--padding-normal);
+                background: v.$color-gradient;
+                color: v.$color-white;
+                border-radius: 50%;
+            }
+
+            &__text {
+                margin-bottom: 24px;
+                font-weight: 700;
+                font-size: var(--heading-normal);
+            }
+
+            &__badge {
+                width: fit-content;
+                border-radius: 90px;
+                background-color: v.$color-light-blue;
+                padding: var(--padding-small) calc(var(--padding-small) + 6px);
+                font-weight: 700;
+                font-size: var(--font-smaller);
+                color: v.$color-blue
+            }
+        }
+    }
+
+    &__man {
+        width: 100%;
+        max-width: 1047px;
+        z-index: 1;
+        position: absolute;
+        bottom: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

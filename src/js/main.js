@@ -1,3 +1,6 @@
 import '@/styles/style.scss'
 
-console.log('aucuo')
+import './hero.js';
+import './gipo.js';
+import './features.js';
+import './versus.js';

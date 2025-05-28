@@ -1,0 +1,107 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+:root {
+    font-family: Raleway, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    color-scheme: dark;
+
+    font-size: var(--font-normal);
+
+    @include m.respond-to(xl) {
+        font-size: var(--font-small);
+    }
+}
+
+body {
+    background-color: v.$color-ultra-dark-green;
+    text-rendering: optimizeLegibility;
+    font-variant-numeric: lining-nums proportional-nums;
+}
+
+sup {
+    font-size: 50% !important;
+}
+
+.section {
+    position: relative;
+    margin: 120px 0;
+}
+
+.container {
+    box-sizing: border-box;
+    @include m.flex(stretch, flex-start, column);
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 120px;
+
+    &--large {
+        max-width: 1920px;
+        padding: 0 var(--padding-large);
+    }
+
+    &--small {
+        max-width: 1840px;
+        padding: 0 80px;
+    }
+}
+
+b {
+    font-weight: 600;
+}
+
+svg {
+    box-sizing: content-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 700;
+    line-height: 110%;
+}
+
+._h1 {
+    font-size: var(--heading-larger);
+}
+
+._h2 {
+    font-size: var(--heading-large);
+}
+
+._h3 {
+    font-size: var(--heading-medium);
+}
+
+._h4 {
+    font-size: var(--heading-normal);
+}
+
+p {
+    line-height: 140%;
+}
+
+._p1 {
+    font-size: var(--font-medium);
+}
+
+._p2 {
+    font-size: var(--font-normal);
+}
+
+._p3 {
+    font-size: var(--font-small);
+}
+
+._p4 {
+    font-size: var(--font-smaller);
+}
+
+a {
+    transition: v.$transition;
+    color: v.$color-white;
+
+    @media (hover: hover) and (min-width: 1024px) {
+        &:hover {
+            opacity: .85;
+        }
+    }
+}

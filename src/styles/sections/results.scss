@@ -1,0 +1,60 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.section-results {
+
+    &__wrapper {
+        width: 100%;
+    }
+
+    &__row {
+        @include m.flex(space-between);
+        gap: var(--gap-medium);
+
+        &:not(:last-child) {
+            margin-bottom: calc(var(--gap-large) * 2);
+        }
+    }
+
+    &__title {
+        max-width: 680px;
+    }
+
+    .story {
+        max-width: 825px;
+        width: 100%;
+
+        &__item {
+            @include m.flex(flex-start, center);
+            gap: var(--gap-medium);
+
+            &:not(:last-child) {
+                margin-bottom: var(--gap-normal);
+            }
+        }
+    }
+
+    .results {
+        padding: var(--padding-largest);
+        border-radius: var(--radius-medium);
+        background-color: v.$color-dark-green;
+
+        &__name {
+            @include m.flex(space-between);
+            margin-bottom: var(--gap-small);
+
+            span {
+                opacity: .4;
+            }
+        }
+
+        &__image {
+            width: 100%;
+            height: auto;
+
+            &:not(:last-child) {
+                margin-bottom: var(--gap-normal);
+            }
+        }
+    }
+}

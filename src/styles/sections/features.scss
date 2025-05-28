@@ -1,0 +1,107 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.section-features {
+    margin-top: 120px;
+
+    &__wrapper {
+        width: 100%;
+    }
+    &__info {
+        @include m.flex(space-between);
+        gap: var(--gap-medium);
+        margin-bottom: calc(var(--padding-large) * 2);
+    }
+
+    &__title {
+        max-width: 680px;
+    }
+
+    &__text {
+        max-width: 540px;
+    }
+
+    .slider {
+        .slide {
+            @include m.flex(flex-start, stretch, column);
+            padding: var(--padding-large) var(--padding-larger);
+            background-color: v.$color-dark-green;
+            border-radius: var(--radius-medium);
+            height: 580px;
+            overflow: hidden;
+
+            &__stats {
+                margin-top: calc(var(--gap-large) * 2);
+
+                .stat {
+                    @include m.flex(flex-start, center);
+                    gap: var(--gap-medium);
+
+                    &:not(:last-child) {
+                        margin-bottom: var(--gap-medium);
+                    }
+
+                    &--green {
+                        --color: #9BBB5A;
+                    }
+
+                    &--blue {
+                        --color: #38BCE2;
+                    }
+
+                    &--red {
+                        --color: #FF5441;
+                    }
+
+                    &__name {
+                        color: var(--color);
+                    }
+
+                    &__text {
+                        opacity: .6;
+                        line-height: 140%;
+                    }
+                }
+            }
+
+            &__stat-circle {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+
+            &__info {
+                @include m.flex(space-between);
+                max-width: 625px;
+
+                .scope {
+                    position: relative;
+                    padding-left: var(--gap-medium);
+
+                    &:before {
+                        @include m.pseudo();
+                        left: 0;
+                        width: 2px;
+                        height: 100%;
+                        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 47.5%, rgba(255, 255, 255, 0) 100%);
+                        box-shadow: 4px 8px 40px 0px #FFFFFF66, 2px 4px 8px 0px #FFFFFF33;
+                    }
+
+                    &__text {
+                        opacity: .6;
+                    }
+                }
+            }
+
+            &__graph {
+                width: 100%;
+                height: auto;
+                margin: 0 -20px;
+            }
+
+            &__banner {
+                margin-top: auto;
+            }
+        }
+    }
+}

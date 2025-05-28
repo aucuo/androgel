@@ -1,0 +1,43 @@
+@use "../variables" as v;
+@use "../mixins" as m;
+
+.table {
+    border-radius: var(--radius-normal);
+    overflow: hidden;
+    background-color: v.$color-ultra-dark-green;
+    border-collapse: collapse;
+    border-style: hidden;
+
+    td, th {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        &[data-left] {
+            text-align: left;
+        }
+
+        &[data-top] {
+            vertical-align: top;
+        }
+    }
+
+    th {
+        padding: var(--padding-normal) var(--padding-medium);
+        text-align: center;
+        font-weight: 600;
+        opacity: .4;
+        height: 92px;
+    }
+
+    td {
+        padding: var(--padding-normal) var(--padding-medium);
+        text-align: center;
+        vertical-align: middle;
+        font-size: var(--font-medium);
+    }
+
+    .yes-icon {
+        color: v.$color-green;
+        width: 26px;
+        height: 26px;
+    }
+}

@@ -5,6 +5,7 @@ import { getHtmlFiles } from './config/utils.js'
 export default defineConfig({
     base: './',
     root: 'src',
+    publicDir: '../public',
 
     plugins: [
         tsconfigPaths(),
